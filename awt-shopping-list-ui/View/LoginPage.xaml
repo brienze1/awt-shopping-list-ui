@@ -30,7 +30,7 @@
                     <Button Command="{Binding AuthenticateUserCommand}" IsEnabled="{Binding IsNotWorking}" Text="Log In" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
                 </Border>
                 <Border StrokeShape="RoundRectangle 5" WidthRequest="400" HeightRequest="90" Margin="5">
-                    <Button Text="Sign In" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
+                    <Button Command="{Binding GoToCreateUserPageCommand}" IsEnabled="{Binding IsNotWorking}" Text="Sign In" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
                 </Border>
             </VerticalStackLayout>
     </Border>

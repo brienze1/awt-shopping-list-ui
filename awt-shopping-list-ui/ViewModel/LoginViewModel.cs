@@ -2,6 +2,7 @@
 using ShoppingList.Service;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
+using ShoppingList.View;
 
 namespace ShoppingList.ViewModel;
 
@@ -35,9 +36,8 @@ public partial class LoginViewModel : BaseViewModel
             IsWorking = true;
 
             await userService.AuthenticateUserAsync(Username, Password);
-
-
-        } catch (Exception ex)
+        }
+        catch (Exception ex)
         {
             Debug.WriteLine(ex);
             await Shell.Current.DisplayAlert("Error", "User could not log in", "Try again");
@@ -48,5 +48,17 @@ public partial class LoginViewModel : BaseViewModel
         }
     }
 
-}
+    [RelayCommand]
+    async Task GoToCreateUserPageAsync()
+    {
+        try
+        {
+            await Shell.Current.GoToAsync(nameof(CreateUserPage));
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.DisplayAlert("Error", ex.Message, "Try again");
+        }
+    }
 
+}

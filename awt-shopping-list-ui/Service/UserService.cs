@@ -21,7 +21,7 @@ public class UserService
 
     public async Task CreateUserAsync(User user)
     {
-        String url = "localhost";
+        String url = "http://localhost:8080/users";
 
         string json = JsonSerializer.Serialize(user);
         StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -43,8 +43,6 @@ public class UserService
         this.password = password;
 
         httpClient.DefaultRequestHeaders.Clear();
-
-        //String url = "http://localhost:8080";
 
         string authroization = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{username}:{password}"));
         httpClient.DefaultRequestHeaders.Add("Authorization", $"Basic {authroization}");
