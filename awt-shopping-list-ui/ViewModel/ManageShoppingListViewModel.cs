@@ -114,7 +114,7 @@ public partial class ManageShoppingListViewModel : BaseViewModel
     [RelayCommand]
     async Task SaveShoppingListAsync()
     {
-        if (IsWorking || SelectedShoppingList.Name == null)
+        if (IsWorking || SelectedShoppingList.Name == null || SelectedShoppingList.Name == "")
         {
             return;
         }
@@ -172,7 +172,7 @@ public partial class ManageShoppingListViewModel : BaseViewModel
     [RelayCommand]
     async Task RemoveItemQuantityAsync(Item item)
     {
-        if (IsWorking || item.Quantity <= 0)
+        if (IsWorking || item.Quantity <= 1)
         {
             return;
         }

@@ -91,7 +91,7 @@ public partial class UserHomeViewModel : BaseViewModel
     [RelayCommand]
     async Task DeleteShoppingListAsync()
     {
-        if (IsWorking)
+        if (IsWorking || SelectedShoppingList == null)
         {
             return;
         }
