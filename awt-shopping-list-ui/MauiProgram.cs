@@ -23,11 +23,15 @@ public static class MauiProgram
 #endif
 
         builder.Services.AddSingleton<UserService>();
+        builder.Services.AddSingleton<ShoppingListService>();
+
         builder.Services.AddSingleton<LoginViewModel>();
-        builder.Services.AddSingleton<CreateUserViewModel>();
-        builder.Services.AddSingleton<UserHomeViewModel>();
         builder.Services.AddSingleton<LoginPage>();
+
+		builder.Services.AddSingleton<CreateUserViewModel>();
         builder.Services.AddTransient<CreateUserPage>();
+
+		builder.Services.AddTransient<UserHomeViewModel>();
         builder.Services.AddTransient<UserHomePage>();
 
 		return builder.Build();

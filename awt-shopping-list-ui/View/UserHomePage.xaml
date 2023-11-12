@@ -8,9 +8,17 @@
              Title="{Binding Title}"
              BackgroundColor="CornflowerBlue">
 
-    <VerticalStackLayout HeightRequest="600" BackgroundColor="AliceBlue">
-        <HorizontalStackLayout BackgroundColor="DarkBlue">
-            <VerticalStackLayout BackgroundColor="AliceBlue">
+    <Grid ColumnDefinitions="*,Auto" RowDefinitions="70,Auto" ColumnSpacing="10" RowSpacing="0" HeightRequest="700" BackgroundColor="CornflowerBlue" Margin="20" HorizontalOptions="Center">
+        <Label Grid.Row="0" Grid.Column="0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Shopping Lists" TextColor="White" FontAttributes="Bold" FontSize="50"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Border Grid.Row="1" Grid.Column="0" StrokeShape="RoundRectangle 15" WidthRequest="430" HeightRequest="360" BackgroundColor="AliceBlue"  VerticalOptions="Start">
+            <VerticalStackLayout VerticalOptions="Center">
                 <Border StrokeShape="RoundRectangle 5" WidthRequest="400" HeightRequest="75" Margin="5">
                     <Button Command="{Binding CreateShoppingListCommand}" IsEnabled="{Binding IsNotWorking}" Text="Create" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
                 </Border>
@@ -24,20 +32,22 @@
                     <Button Command="{Binding CreateShoppingListCommand}" IsEnabled="{Binding IsNotWorking}" Text="Log out" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
                 </Border>
             </VerticalStackLayout>
-            <VerticalStackLayout BackgroundColor="Green" WidthRequest="400" HeightRequest="400">
-                <CollectionView ItemsSource="{Binding ShoppingLists}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="model:ShoppingList">
-                            <Grid Padding="10">
-                                <Frame>
-                                    <Label Text="{Binding Name}" FontSize="50" BackgroundColor="Black"/>
-                                </Frame>
-                            </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </VerticalStackLayout>
-        </HorizontalStackLayout>
-    </VerticalStackLayout>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" StrokeShape="RoundRectangle 15" WidthRequest="800" HeightRequest="600" BackgroundColor="AliceBlue">
+            <CollectionView ItemsSource="{Binding ShoppingLists}" SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:ShoppingList">
+                        <Grid Padding="10" RowDefinitions="70">
+                            <Frame BackgroundColor="DeepSkyBlue">
+                                <Label Text="{Binding Name}" TextColor="White" FontSize="40"/>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+
+    </Grid>
 
 </ContentPage>

@@ -36,7 +36,6 @@ public class UserService
         await AuthenticateUserAsync(user.Username, user.Password);
     }
 
-
     public async Task AuthenticateUserAsync(string username, string password)
     {
         this.Username = username;
@@ -58,6 +57,11 @@ public class UserService
 
         UserAuthentication result = await response.Content.ReadFromJsonAsync<UserAuthentication>();
         this.Token = result.Token;
+    }
+
+    public string GetToken()
+    {
+        return Token;
     }
 }
 
