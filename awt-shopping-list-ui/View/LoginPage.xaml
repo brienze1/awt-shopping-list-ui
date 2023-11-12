@@ -13,23 +13,23 @@
          WidthRequest="600"
          HeightRequest="550">
         <VerticalStackLayout BackgroundColor="AliceBlue" WidthRequest="600" HeightRequest="550">
-                <Label WidthRequest="400" Margin="0, 30, 0, 5">
+                <Label WidthRequest="400" Margin="0, 65, 0, 10">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Log In" TextColor="Black" FontAttributes="Bold" FontSize="50"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Border StrokeShape="RoundRectangle 5" StrokeThickness="3" Stroke="DodgerBlue" WidthRequest="400" HeightRequest="90" Margin="5">
+                <Border StrokeShape="RoundRectangle 5" StrokeThickness="3" Stroke="DodgerBlue" WidthRequest="400" HeightRequest="70" Margin="5">
                     <Entry Text="{Binding Username}" Placeholder="Username" FontSize="30"  BackgroundColor="White" PlaceholderColor="Gray" TextColor="Black"/>
                 </Border>
-                <Border StrokeShape="RoundRectangle 5" StrokeThickness="3" Stroke="DodgerBlue" WidthRequest="400" HeightRequest="90" Margin="5">
+                <Border StrokeShape="RoundRectangle 5" StrokeThickness="3" Stroke="DodgerBlue" WidthRequest="400" HeightRequest="70" Margin="5">
                     <Entry Text="{Binding Password}" Placeholder="Password" FontSize="30" PlaceholderColor="Gray" TextColor="Black" IsPassword="True"/>
                 </Border>
-                <Border StrokeShape="RoundRectangle 5" WidthRequest="400" HeightRequest="90" Margin="5">
+                <Border StrokeShape="RoundRectangle 5" WidthRequest="400" HeightRequest="75" Margin="5">
                     <Button Command="{Binding AuthenticateUserCommand}" IsEnabled="{Binding IsNotWorking}" Text="Log In" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
                 </Border>
-                <Border StrokeShape="RoundRectangle 5" WidthRequest="400" HeightRequest="90" Margin="5">
+                <Border StrokeShape="RoundRectangle 5" WidthRequest="400" HeightRequest="75" Margin="5">
                     <Button Command="{Binding GoToCreateUserPageCommand}" IsEnabled="{Binding IsNotWorking}" Text="Sign In" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
                 </Border>
             </VerticalStackLayout>

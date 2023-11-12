@@ -10,9 +10,9 @@ public class UserService
 {
 
     HttpClient httpClient;
-    private String username;
-    private String password;
-    private String token;
+    private string Username;
+    private string Password;
+    private string Token;
 
     public UserService()
     {
@@ -21,7 +21,7 @@ public class UserService
 
     public async Task CreateUserAsync(User user)
     {
-        String url = "http://localhost:8080/users";
+        string url = "http://localhost:8080/users";
 
         string json = JsonSerializer.Serialize(user);
         StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -37,10 +37,10 @@ public class UserService
     }
 
 
-    public async Task AuthenticateUserAsync(String username, String password)
+    public async Task AuthenticateUserAsync(string username, string password)
     {
-        this.username = username;
-        this.password = password;
+        this.Username = username;
+        this.Password = password;
 
         httpClient.DefaultRequestHeaders.Clear();
 
@@ -57,7 +57,7 @@ public class UserService
         }
 
         UserAuthentication result = await response.Content.ReadFromJsonAsync<UserAuthentication>();
-        this.token = result.Token;
+        this.Token = result.Token;
     }
 }
 

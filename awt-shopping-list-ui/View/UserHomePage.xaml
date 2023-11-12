@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingList.View.UserHomePage"
+             xmlns:model="clr-namespace:ShoppingList.Model"
+             xmlns:viewmodel="clr-namespace:ShoppingList.ViewModel"
+             x:DataType="viewmodel:UserHomeViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="CornflowerBlue">
+
+    <VerticalStackLayout HeightRequest="600" BackgroundColor="AliceBlue">
+        <HorizontalStackLayout BackgroundColor="DarkBlue">
+            <VerticalStackLayout BackgroundColor="AliceBlue">
+                <Border StrokeShape="RoundRectangle 5" WidthRequest="400" HeightRequest="75" Margin="5">
+                    <Button Command="{Binding CreateShoppingListCommand}" IsEnabled="{Binding IsNotWorking}" Text="Create" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
+                </Border>
+                <Border StrokeShape="RoundRectangle 5" WidthRequest="400" HeightRequest="75" Margin="5">
+                    <Button Command="{Binding CreateShoppingListCommand}" IsEnabled="{Binding IsNotWorking}" Text="Edit" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
+                </Border>
+                <Border StrokeShape="RoundRectangle 5" WidthRequest="400" HeightRequest="75" Margin="5">
+                    <Button Command="{Binding CreateShoppingListCommand}" IsEnabled="{Binding IsNotWorking}" Text="Delete" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
+                </Border>
+                <Border StrokeShape="RoundRectangle 5" WidthRequest="400" HeightRequest="75" Margin="5">
+                    <Button Command="{Binding CreateShoppingListCommand}" IsEnabled="{Binding IsNotWorking}" Text="Log out" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
+                </Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout BackgroundColor="Green" WidthRequest="400" HeightRequest="400">
+                <CollectionView ItemsSource="{Binding ShoppingLists}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:ShoppingList">
+                            <Grid Padding="10">
+                                <Frame>
+                                    <Label Text="{Binding Name}" FontSize="50" BackgroundColor="Black"/>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>

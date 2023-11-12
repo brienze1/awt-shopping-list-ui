@@ -12,6 +12,7 @@ public partial class CreateUserViewModel : BaseViewModel
 
     public CreateUserViewModel(UserService userService)
     {
+        Title = "Create user";
         this.userService = userService;
     }
 

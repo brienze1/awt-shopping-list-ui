@@ -12,10 +12,10 @@ public partial class LoginViewModel : BaseViewModel
 
 
     [ObservableProperty]
-    String username;
+    string username;
 
     [ObservableProperty]
-    String password;
+    string password;
 
     public LoginViewModel(UserService userService)
     {
@@ -36,6 +36,8 @@ public partial class LoginViewModel : BaseViewModel
             IsWorking = true;
 
             await userService.AuthenticateUserAsync(Username, Password);
+
+            await Shell.Current.GoToAsync($"{nameof(UserHomePage)}");
         }
         catch (Exception ex)
         {
