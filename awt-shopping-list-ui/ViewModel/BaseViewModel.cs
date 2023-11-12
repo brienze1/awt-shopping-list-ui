@@ -5,11 +5,11 @@ namespace ShoppingList.ViewModel;
 public partial class BaseViewModel : ObservableObject
 {
     [ObservableProperty]
-    String title;
+    public string title;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsNotWorking))]
-    bool isWorking;
+    public bool isWorking;
 
     public bool IsNotWorking => !IsWorking;
 }

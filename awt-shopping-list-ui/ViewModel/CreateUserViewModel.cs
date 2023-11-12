@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using ShoppingList.Model;
 using ShoppingList.Service;
+using ShoppingList.View;
 
 namespace ShoppingList.ViewModel;
 
@@ -31,7 +32,27 @@ public partial class CreateUserViewModel : BaseViewModel
     [RelayCommand]
     async Task CreateUserAsync()
     {
-        await userService.CreateUserAsync(new User(Username, Password, FirstName, LastName));
+        if (IsWorking)
+        {
+            return;
+        }
+
+        try
+        {
+            IsWorking = true;
+
+            await userService.CreateUserAsync(new User(Username, Password, FirstName, LastName));
+
+            await Shell.Current.GoToAsync("..", true);
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("Error", "Username already exists", "Try again");
+        }
+        finally
+        {
+            IsWorking = false;
+        }
     }
 
 }

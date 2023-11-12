@@ -16,7 +16,7 @@
                 <Label WidthRequest="400" Margin="0, 65, 0, 10">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Log In" TextColor="Black" FontAttributes="Bold" FontSize="50"/>
+                            <Span Text="Log In" TextColor="Black" FontAttributes="Bold" FontSize="40"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>

@@ -12,7 +12,7 @@
         <Label Grid.Row="0" Grid.Column="0">
             <Label.FormattedText>
                 <FormattedString>
-                    <Span Text="Shopping Lists" TextColor="White" FontAttributes="Bold" FontSize="50"/>
+                    <Span Text="Shopping Lists" TextColor="White" FontAttributes="Bold" FontSize="40"/>
                 </FormattedString>
             </Label.FormattedText>
         </Label>
@@ -23,24 +23,24 @@
                     <Button Command="{Binding CreateShoppingListCommand}" IsEnabled="{Binding IsNotWorking}" Text="Create" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
                 </Border>
                 <Border StrokeShape="RoundRectangle 5" WidthRequest="400" HeightRequest="75" Margin="5">
-                    <Button Command="{Binding CreateShoppingListCommand}" IsEnabled="{Binding IsNotWorking}" Text="Edit" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
+                    <Button Command="{Binding EditShoppingListCommand}" IsEnabled="{Binding IsNotWorking}" Text="Edit" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
                 </Border>
                 <Border StrokeShape="RoundRectangle 5" WidthRequest="400" HeightRequest="75" Margin="5">
-                    <Button Command="{Binding CreateShoppingListCommand}" IsEnabled="{Binding IsNotWorking}" Text="Delete" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
+                    <Button Command="{Binding DeleteShoppingListCommand}" IsEnabled="{Binding IsNotWorking}" Text="Delete" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
                 </Border>
                 <Border StrokeShape="RoundRectangle 5" WidthRequest="400" HeightRequest="75" Margin="5">
-                    <Button Command="{Binding CreateShoppingListCommand}" IsEnabled="{Binding IsNotWorking}" Text="Log out" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
+                    <Button Command="{Binding LogOutCommand}" IsEnabled="{Binding IsNotWorking}" Text="Log out" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
                 </Border>
             </VerticalStackLayout>
         </Border>
 
         <Border Grid.Row="1" Grid.Column="1" StrokeShape="RoundRectangle 15" WidthRequest="800" HeightRequest="600" BackgroundColor="AliceBlue">
-            <CollectionView ItemsSource="{Binding ShoppingLists}" SelectionMode="Single">
+            <CollectionView ItemsSource="{Binding ShoppingLists}" SelectionMode="Single" SelectedItem="{Binding SelectedShoppingList}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:ShoppingList">
                         <Grid Padding="10" RowDefinitions="70">
                             <Frame BackgroundColor="DeepSkyBlue">
-                                <Label Text="{Binding Name}" TextColor="White" FontSize="40"/>
+                                <Label Text="{Binding Name}" TextColor="White" FontSize="40" HeightRequest="60"/>
                             </Frame>
                         </Grid>
                     </DataTemplate>

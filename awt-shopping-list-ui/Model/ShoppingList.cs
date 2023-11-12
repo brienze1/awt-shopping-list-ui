@@ -1,16 +1,25 @@
-﻿namespace ShoppingList.Model
-{
-	public class ShoppingList
-	{
+﻿using System.Text.Json.Serialization;
+using CommunityToolkit.Mvvm.ComponentModel;
 
-        public ShoppingList(string name)
+namespace ShoppingList.Model
+{
+    public partial class ShoppingList : ObservableObject
+    {
+
+        public ShoppingList()
         {
-            this.Name = name;
+            this.Items = new List<Item>();
         }
 
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public List<Item> Items { get; set; }
+        [ObservableProperty]
+        [property: JsonPropertyName("id")]
+        public string id;
+        [ObservableProperty]
+        [property: JsonPropertyName("name")]
+        public string name;
+        [ObservableProperty]
+        [property: JsonPropertyName("items")]
+        public List<Item> items;
     }
 
 }

@@ -37,7 +37,7 @@ public partial class LoginViewModel : BaseViewModel
 
             await userService.AuthenticateUserAsync(Username, Password);
 
-            await Shell.Current.GoToAsync($"{nameof(UserHomePage)}");
+            await Shell.Current.GoToAsync($"{nameof(UserHomePage)}", true);
         }
         catch (Exception ex)
         {

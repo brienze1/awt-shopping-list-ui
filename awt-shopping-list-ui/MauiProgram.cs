@@ -34,6 +34,9 @@ public static class MauiProgram
 		builder.Services.AddTransient<UserHomeViewModel>();
         builder.Services.AddTransient<UserHomePage>();
 
+		builder.Services.AddTransient<ManageShoppingListViewModel>();
+        builder.Services.AddTransient<ManageShoppingListPage>();
+
 		return builder.Build();
 	}
 }
