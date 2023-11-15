@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingList.View.CreateUserPage"
+             xmlns:model="clr-namespace:ShoppingList.Model"
+             xmlns:viewmodel="clr-namespace:ShoppingList.ViewModel"
+             x:DataType="viewmodel:CreateUserViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="CornflowerBlue">
+
+    <Border
+         StrokeShape="RoundRectangle 20"
+         WidthRequest="600"
+         HeightRequest="550">
+        <VerticalStackLayout BackgroundColor="AliceBlue" WidthRequest="600" HeightRequest="550">
+            <Label WidthRequest="400" Margin="0, 30, 0, 5">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Create account" TextColor="Black" FontAttributes="Bold" FontSize="50"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Border StrokeShape="RoundRectangle 5" StrokeThickness="3" Stroke="DodgerBlue" WidthRequest="400" HeightRequest="70" Margin="5">
+                <Entry Text="{Binding FirstName}" Placeholder="First name" FontSize="30"  BackgroundColor="White" PlaceholderColor="Gray" TextColor="Black"/>
+            </Border>
+            <Border StrokeShape="RoundRectangle 5" StrokeThickness="3" Stroke="DodgerBlue" WidthRequest="400" HeightRequest="70" Margin="5">
+                <Entry Text="{Binding LastName}" Placeholder="Last name" FontSize="30"  BackgroundColor="White" PlaceholderColor="Gray" TextColor="Black"/>
+            </Border>
+            <Border StrokeShape="RoundRectangle 5" StrokeThickness="3" Stroke="DodgerBlue" WidthRequest="400" HeightRequest="70" Margin="5">
+                <Entry Text="{Binding Username}" Placeholder="Username" FontSize="30"  BackgroundColor="White" PlaceholderColor="Gray" TextColor="Black"/>
+            </Border>
+            <Border StrokeShape="RoundRectangle 5" StrokeThickness="3" Stroke="DodgerBlue" WidthRequest="400" HeightRequest="70" Margin="5">
+                <Entry Text="{Binding Password}" Placeholder="Password" FontSize="30" PlaceholderColor="Gray" TextColor="Black" IsPassword="True"/>
+            </Border>
+            <Border StrokeShape="RoundRectangle 5" WidthRequest="400" HeightRequest="75" Margin="5">
+                <Button Command="{Binding CreateUserCommand}" IsEnabled="{Binding IsNotWorking}" Text="Register" FontSize="30" BackgroundColor="DodgerBlue" TextColor="White"/>
+            </Border>
+        </VerticalStackLayout>
+    </Border>
+
+</ContentPage>
+
