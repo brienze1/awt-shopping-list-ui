@@ -1,3 +1,8 @@
 .idea
 target
 *.iml
+.vs
+**/Debug/
+.DS_Store
+**/obj/
+**/bin/
