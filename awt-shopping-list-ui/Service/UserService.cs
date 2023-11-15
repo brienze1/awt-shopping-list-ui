@@ -10,8 +10,6 @@ public class UserService
 {
 
     HttpClient httpClient;
-    private string Username;
-    private string Password;
     private string Token;
 
     public UserService()
@@ -38,9 +36,6 @@ public class UserService
 
     public async Task AuthenticateUserAsync(string username, string password)
     {
-        this.Username = username;
-        this.Password = password;
-
         httpClient.DefaultRequestHeaders.Clear();
 
         string authroization = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{username}:{password}"));
